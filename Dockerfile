@@ -20,3 +20,11 @@ RUN apt-get update -y -qq \
 	&& ./configure \
 	&& make \
 	&& make install
+
+ADD . /app
+
+# HTTP & HTTPS Ports
+EXPOSE 80
+EXPOSE 443
+
+CMD ["/bin/bash", "/app/start.sh"]
